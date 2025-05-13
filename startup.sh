@@ -7,4 +7,4 @@ chmod +x startup.sh
 pip install -r requirements.txt
 
 # Start Gunicorn server with the correct wsgi file
-gunicorn --bind=0.0.0.0 --timeout 600 wsgi:app
+gunicorn --bind=0.0.0.0 --timeout 600 wsgi:application
