@@ -132,7 +132,7 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
         "siteConfig": {
           "linuxFxVersion": "[parameters('linuxFxVersion')]",
-          "appCommandLine": "gunicorn --bind=0.0.0.0 --timeout 600 application:app",
+          "appCommandLine": "bash -c 'if [ ! -f /home/site/wwwroot/app.py ]; then wget -O /tmp/app.zip https://github.com/ketanvh/docbot/archive/refs/heads/main.zip && unzip /tmp/app.zip -d /tmp && cp -r /tmp/docbot-main/* /home/site/wwwroot/; fi && gunicorn --bind=0.0.0.0 --timeout 600 application:app'",
           "appSettings": [
             {
               "name": "SCM_DO_BUILD_DURING_DEPLOYMENT",
@@ -184,20 +184,6 @@
             }
           ]
         }
-      }
-    },
-    {
-      "type": "Microsoft.Web/sites/sourcecontrols",
-      "apiVersion": "2022-03-01",
-      "name": "[concat(parameters('webAppName'), '/web')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/sites', parameters('webAppName'))]"
-      ],
-      "properties": {
-        "repoUrl": "https://github.com/ketanvh/docbot",
-        "branch": "main",
-        "isManualIntegration": true,
-        "isGitHubAction": false
       }
     }
   ],
