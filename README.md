@@ -2,7 +2,7 @@
 
 A Flask-based Retrieval-Augmented Generation (RAG) chatbot that answers questions based on uploaded documents and websites.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FYOUR_USERNAME%2FYOUR_REPO%2Fmain%2Fazure.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2ketanvh%2Fdocbot%2Fmain%2Fazure.json)
 
 ## Screenshots
 
