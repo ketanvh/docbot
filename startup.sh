@@ -6,4 +6,4 @@ if [ ! -f /home/site/wwwroot/app.py ]; then
   cp -r /tmp/docbot-main/* /home/site/wwwroot/
 fi
 
-gunicorn --bind=0.0.0.0 --timeout 600 application:app
+gunicorn --bind=0.0.0.0 --timeout 600 app:app
