@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# Make the script executable
-chmod +x startup.sh
+if [ ! -f /home/site/wwwroot/app.py ]; then
+  wget -O /tmp/app.zip https://github.com/ketanvh/docbot/archive/refs/heads/main.zip
+  unzip /tmp/app.zip -d /tmp
+  cp -r /tmp/docbot-main/* /home/site/wwwroot/
+fi
 
-# Install any dependencies if needed
-pip install -r requirements.txt
-
-# Start Gunicorn server with the correct entry point
 gunicorn --bind=0.0.0.0 --timeout 600 application:app

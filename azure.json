@@ -132,7 +132,7 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
         "siteConfig": {
           "linuxFxVersion": "[parameters('linuxFxVersion')]",
-          "appCommandLine": "bash -c 'if [ ! -f /home/site/wwwroot/app.py ]; then wget -O /tmp/app.zip https://github.com/ketanvh/docbot/archive/refs/heads/main.zip && unzip /tmp/app.zip -d /tmp && cp -r /tmp/docbot-main/* /home/site/wwwroot/; fi && gunicorn --bind=0.0.0.0 --timeout 600 application:app'",
+          "appCommandLine": "./startup.sh",
           "appSettings": [
             {
               "name": "SCM_DO_BUILD_DURING_DEPLOYMENT",
