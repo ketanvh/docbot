@@ -20,8 +20,8 @@ def debug_log(message):
 
 # Initialize Flask app with correct template and static folders
 app = Flask(__name__, 
-            template_folder='app/templates',
-            static_folder='app/static')
+            template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'templates'),
+            static_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'static'))
 
 # Configure server-side session
 app.config["SESSION_TYPE"] = "filesystem"
@@ -47,6 +47,7 @@ def index():
     logo_path = os.getenv("APP_LOGO_PATH", "images/logo.png")
     if logo_path.startswith('static/'):
         logo_path = logo_path[7:]  # Remove 'static/' prefix
+    debug_log(f"Using logo path: {logo_path}")
         
     app_color = os.getenv("APP_PRIMARY_COLOR", "#007bff")
     
