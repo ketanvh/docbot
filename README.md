@@ -64,7 +64,7 @@ A Flask-based Retrieval-Augmented Generation (RAG) chatbot that answers question
 
 ### Azure Deployment (One-Click)
 
-1. Click the "Deploy to Azure" button at the top of this README
+1. Click the "Deploy to Azure" button at the top of this README.
 2. Fill in the required parameters:
    - **Web App Name**: Choose a unique name for your web app
    - **Location**: Select an Azure region
@@ -74,8 +74,14 @@ A Flask-based Retrieval-Augmented Generation (RAG) chatbot that answers question
    - **Azure OpenAI Deployment Name**: Your model deployment name
    - **Azure Document Intelligence Endpoint**: Your Azure Document Intelligence endpoint URL
    - **Azure Document Intelligence API Key**: Your Document Intelligence API key
-3. Click "Review + Create" and then "Create" to deploy the application
-4. Once deployment is complete, you can access your app at `https://<web-app-name>.azurewebsites.net`
+3. Click "Review + Create" and then "Create" to deploy the application.
+4. The deployment will automatically:
+   - Provision all required Azure resources (App Service, App Service Plan, etc.)
+   - Download and deploy the latest code from the GitHub repository (main branch)
+   - Start the web application automatically
+5. Once deployment is complete, access your app at `https://<web-app-name>.azurewebsites.net`.
+
+> **Note:** No manual code push, GitHub Actions, or post-deployment steps are required. The app will be ready to use after deployment.
 
 ### Azure Deployment (GitHub Actions)
 
