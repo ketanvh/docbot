@@ -1,0 +1,596 @@
+/* Light blue theme matching the attached image */
+:root {
+  /* Primary colors */
+  --primary-color: #8BACC3; /* Light blue from image header */
+  --primary-light: #DFE6EC;
+  --on-primary: #FFFFFF;
+  
+  /* Secondary colors */
+  --secondary-color: #6A8CA6; /* Darker shade of the primary blue */
+  --secondary-light: #E5E9F0;
+  --on-secondary: #FFFFFF;
+  
+  /* Tertiary colors */
+  --tertiary-color: #5D8AAD; /* Another shade of blue */
+  --tertiary-light: #EAF0F5;
+  --on-tertiary: #FFFFFF;
+  
+  /* Surface & background colors */
+  --background-color: #F0F0F0; /* Light gray background from image */
+  --surface-color: #FFFFFF;
+  --surface-variant: #ECEFF4;
+  
+  /* Text colors */
+  --text-color: #333333; /* Dark gray */
+  --text-secondary: #5A6776; /* Medium gray */
+  --text-tertiary: #8A97A3;
+  
+  /* Accent colors */
+  --success-color: #4CAF50; /* Green */
+  --error-color: #F44336; /* Red */
+  --warning-color: #FF9800; /* Orange */
+  --info-color: #2196F3; /* Blue */
+  
+  /* Button colors */
+  --button-background: #FFFFFF; /* White buttons in the image */
+  --button-text: #7A9EB5; /* Light blue text on buttons */
+  --button-border: #E5E5E5;
+  
+  /* Container & structural */
+  --border-color: #D1D8E0; /* Light border from image */
+  --radius: 20px; /* Rounded corners seen in image */
+  --radius-sm: 12px;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 3px 5px -1px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0px 5px 15px rgba(0, 0, 0, 0.08);
+  
+  /* Typography */
+  --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-stack);
+  line-height: 1.6;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header {
+  background-color: var(--primary-color);
+  color: var(--on-primary);
+  padding: 14px 0;
+  box-shadow: var(--shadow-md);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 32px;
+  margin-right: 12px;
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.25px;
+}
+
+/* Main container */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 65px);
+  padding: 24px 0;
+}
+
+.card {
+  background: var(--surface-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-elevated);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+}
+
+/* Welcome container */
+.welcome-container {
+  padding: 40px 32px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: auto; /* Allow scrolling if needed */
+}
+
+.welcome-title {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 16px;
+  letter-spacing: 0.25px;
+}
+
+.welcome-text {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 32px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Upload form */
+.upload-section {
+  background-color: var(--surface-variant);
+  border-radius: var(--radius);
+  padding: 24px;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  max-height: 70vh; /* Limit height to 70% of viewport height */
+  overflow-y: auto; /* Allow vertical scrolling */
+  display: flex;
+  flex-direction: column;
+}
+
+#upload-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+/* Make the websites container scrollable if needed */
+.websites-container {
+  margin-bottom: 24px;
+  max-height: 40vh; /* Limit height to 40% of viewport height */
+  overflow-y: auto; /* Allow vertical scrolling */
+  padding-right: 5px; /* Space for scrollbar */
+}
+
+.url-input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+  background-color: var(--surface-color);
+}
+
+.url-input:last-child {
+  margin-bottom: 0;
+}
+
+/* URL input container and related elements */
+.url-input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.url-input-container .url-input {
+  margin-bottom: 0;
+  padding-right: 40px; /* Make space for the remove button */
+}
+
+.url-input-container:last-child {
+  margin-bottom: 0;
+}
+
+.remove-url-btn {
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.remove-url-btn:hover {
+  color: var(--error-color);
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.file-list {
+  margin-top: 12px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.file-item {
+  background-color: var(--primary-light);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  font-size: 14px;
+  color: var(--primary-color);
+}
+
+/* Chat container */
+.chat-container {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+}
+
+.resources-bar {
+  position: sticky;
+  top: 0;
+  background-color: var(--primary-light);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 10px;
+  color: var(--primary-color);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  max-height: 90px;
+  overflow-y: auto;
+}
+
+.resources-bar .resource-item {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.resources-bar .resource-item i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.resources-bar .resource-item.files i {
+  color: var(--error-color);
+}
+
+.resources-bar .resource-item.websites i {
+  color: var(--info-color);
+}
+
+.resources-bar .resource-title {
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.resources-bar .resource-files-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.resources-bar .resource-file-item {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  display: inline-block;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chat-history {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message {
+  display: flex;
+  max-width: 80%;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+}
+
+.user-message {
+  margin-left: auto;
+  flex-direction: row-reverse;
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.bot-message {
+  background-color: var(--surface-variant);
+  color: var(--text-color);
+}
+
+.system-message {
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.system-message .message-bubble {
+  background-color: var(--surface-variant);
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  line-height: 1.5;
+  border-left: 3px solid var(--tertiary-color);
+}
+
+.system-message .message-bubble:contains("Processed resources") {
+  font-size: 10px;
+  padding: 12px 16px;
+  background-color: var(--tertiary-light);
+  border-left: 3px solid var(--tertiary-color);
+  color: var(--tertiary-color);
+}
+
+.system-message.error .message-bubble {
+  background-color: #FFDAD6;
+  color: var(--error-color);
+  border-left: 3px solid var(--error-color);
+}
+
+/* Handle markdown content */
+.message-bubble p {
+  margin: 0 0 12px 0;
+}
+
+.message-bubble p:last-child {
+  margin: 0;
+}
+
+.message-bubble pre {
+  background: var(--surface-color);
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+}
+
+.message-bubble code {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 13px;
+  background-color: var(--surface-color);
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+/* Input area */
+.input-area {
+  padding: 16px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 22px; /* Match the more rounded input field in the image */
+  overflow: hidden;
+  background-color: var(--surface-color);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 14px 16px;
+  border: none;
+  font-size: 16px;
+  font-family: var(--font-stack);
+  background-color: var(--surface-color);
+}
+
+.chat-input:focus {
+  outline: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  background-color: transparent;
+  padding: 0;
+  width: 100%;
+}
+
+.controls span {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+/* Button container for Clear Messages and Reset Chat */
+.controls .btn-group {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+/* Buttons - style to match the white buttons with blue text in the image */
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  border: 1px solid var(--button-border);
+  padding: 10px 24px;
+  font-size: 16px;
+  border-radius: 22px; /* More rounded buttons like in the image */
+  cursor: pointer;
+  background: var(--button-background);
+  color: var(--button-text);
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border-color: var(--button-border);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-color);
+}
+
+.btn-secondary {
+  background-color: var(--button-background);
+  color: var(--button-text);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-light);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-danger {
+  background-color: var(--button-background);
+  color: var(--error-color);
+  border-color: #FFE5E5;
+}
+
+.btn-danger:hover {
+  background-color: #FFF2F2;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 18px;
+}
+
+/* Loading indicator */
+.loading-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7); /* Lighter overlay */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(139, 172, 195, 0.2); /* Light blue */
+  border-left-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Utility classes */
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: flex !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 24px;
+  }
+  
+  .message {
+    max-width: 90%;
+  }
+  
+  .upload-section {
+    padding: 16px;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    font-size: 15px;
+  }
+}
