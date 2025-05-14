@@ -20,8 +20,8 @@ def debug_log(message):
 
 # Initialize Flask app with correct template and static folders
 app = Flask(__name__, 
-            template_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'templates'),
-            static_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'app', 'static'))
+            template_folder="app/templates",
+            static_folder="app/static")
 
 # Configure server-side session
 app.config["SESSION_TYPE"] = "filesystem"

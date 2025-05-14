@@ -36,7 +36,7 @@
     },
     "linuxFxVersion": {
       "type": "string",
-      "defaultValue": "PYTHON|3.10",
+      "defaultValue": "PYTHON|3.12",
       "metadata": {
         "description": "The Runtime stack of current web app"
       }
@@ -62,7 +62,7 @@
     },
     "azureOpenaiApiVersion": {
       "type": "string",
-      "defaultValue": "2023-05-15",
+      "defaultValue": "2025-01-01-preview",
       "metadata": {
         "description": "Azure OpenAI API Version"
       }
@@ -132,11 +132,15 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",
         "siteConfig": {
           "linuxFxVersion": "[parameters('linuxFxVersion')]",
-          "appCommandLine": "bash -c \"if [ ! -f /home/site/wwwroot/app.py ]; then wget -O /tmp/app.zip https://github.com/ketanvh/docbot/archive/refs/heads/main.zip && unzip /tmp/app.zip -d /tmp && cp -r /tmp/docbot-main/* /home/site/wwwroot/; fi && pip install -r /home/site/wwwroot/requirements.txt && gunicorn --bind=0.0.0.0 --timeout 600 app:app\"",
+          "appCommandLine": "bash -c \"if [ ! -f /home/site/wwwroot/app.py ]; then wget -O /tmp/app.zip https://github.com/ketanvh/docbot/archive/refs/heads/main.zip && unzip /tmp/app.zip -d /tmp && cp -r /tmp/docbot-main/* /home/site/wwwroot/; fi && pip install -r /home/site/wwwroot/requirements.txt && pip install gunicorn && gunicorn --bind=0.0.0.0:8000 app:app\"",
           "appSettings": [
             {
               "name": "SCM_DO_BUILD_DURING_DEPLOYMENT",
               "value": "true"
+            },
+            {
+              "name": "WEBSITES_PORT", 
+              "value": "8000"
             },
             {
               "name": "AZURE_OPENAI_ENDPOINT",
