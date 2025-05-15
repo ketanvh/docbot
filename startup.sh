@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# Enable error logging
+# Enable error loggingcd 
 set -e
 echo "Starting deployment script..."
 

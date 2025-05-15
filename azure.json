@@ -131,7 +131,8 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]",        
         "siteConfig": {          
           "linuxFxVersion": "[parameters('linuxFxVersion')]",
-          "appCommandLine": "bash -c \"if [ ! -f /home/site/wwwroot/app.py ]; then wget -O /tmp/app.zip https://github.com/ketanvh/docbot/archive/refs/heads/main.zip && unzip /tmp/app.zip -d /tmp && cp -r /tmp/docbot-main/* /home/site/wwwroot/; chmod +x /home/site/wwwroot/startup.sh; sed -i 's/\\r$//' /home/site/wwwroot/startup.sh; fi && /home/site/wwwroot/startup.sh\"",
+          "alwaysOn": true,
+          "appCommandLine": "bash -c \"if [ ! -f /home/site/wwwroot/app.py ]; then wget -O /tmp/app.zip https://github.com/ketanvh/docbot/archive/refs/heads/main.zip && unzip /tmp/app.zip -d /tmp && cp -r /tmp/docbot-main/* /home/site/wwwroot/; chmod +x /home/site/wwwroot/startup.sh; fi && pip install -r /home/site/wwwroot/requirements.txt && gunicorn --bind=0.0.0.0:8000 --timeout 600 app:app",
           "appSettings": [{
               "name": "SCM_DO_BUILD_DURING_DEPLOYMENT",
               "value": "true"
