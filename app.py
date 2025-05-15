@@ -4,8 +4,8 @@ from flask import Flask, render_template, request, jsonify, session
 from flask_session import Session
 from dotenv import load_dotenv
 import uuid
-from app.utils.service_provider import DocumentServiceProvider
-from app.utils.openai_service import get_completion
+from docaiapp.utils.service_provider import DocumentServiceProvider
+from docaiapp.utils.openai_service import get_completion
 
 # Load environment variables
 load_dotenv()
@@ -20,8 +20,8 @@ def debug_log(message):
 
 # Initialize Flask app with correct template and static folders
 app = Flask(__name__, 
-            template_folder="app/templates",
-            static_folder="app/static")
+            template_folder="docaiapp/templates",
+            static_folder="docaiapp/static")
 
 # Configure server-side session
 app.config["SESSION_TYPE"] = "filesystem"

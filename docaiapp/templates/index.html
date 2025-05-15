@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-debug="{{ debug }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        :root {
+            --primary-color: {{ primary_color }};
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <img src="{{ url_for('static', filename=logo_path) }}" alt="Logo" class="logo">
+                <h1 class="app-title">{{ title }}</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container main-container">
+        <div class="card">
+            <!-- Welcome Screen -->
+            <div id="welcome-screen" class="welcome-container">
+                <h1 class="welcome-title">{{ welcome_title }}</h1>
+                <p class="welcome-text">{{ welcome_message }}</p>
+                
+                <div class="upload-section">
+                    <form id="upload-form">
+                        <!-- File Upload Section -->
+                        <div class="form-group">
+                            <label for="file-upload" class="form-label">
+                                <i class="fas fa-file"></i> Upload PDF, CSV, Word, or PowerPoint Files
+                            </label>
+                            <input type="file" id="file-upload" class="file-input" accept=".pdf,.csv,.docx,.doc,.pptx,.ppt" multiple>
+                            <small class="helper-text">You can select multiple files at once</small>
+                            <ul id="file-list" class="file-list"></ul>
+                        </div>
+                        
+                        <!-- Website URLs Section -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-globe"></i> Add Website URLs
+                            </label>
+                            <div id="websites-container" class="websites-container">
+                                <input type="url" class="url-input" placeholder="https://example.com">
+                            </div>
+                            <button type="button" id="add-url-btn" class="btn btn-outline btn-sm">
+                                <i class="fas fa-plus"></i> Add Another URL
+                            </button>
+                        </div>
+                        
+                        <div class="controls">
+                            <span></span> <!-- Empty span for flex spacing -->
+                            <button type="submit" class="btn btn-primary" title="Send your message">
+                                <i class="fas fa-comments"></i> Start Chat
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Chat Screen -->
+            <div id="chat-screen" class="chat-container">
+                <div id="resources-bar" class="resources-bar"></div>
+                <div id="chat-history" class="chat-history"></div>
+                
+                <div class="input-area">
+                    <form id="chat-form">
+                        <div class="input-group">
+                            <input type="text" id="user-input" class="chat-input" placeholder="Type your question..." autocomplete="off">
+                            <button type="submit" class="btn btn-primary" title="Send your message">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="controls">
+                            <span>Type a question about your documents</span>
+                            <div class="btn-group">
+                                <button type="button" id="clear-history-btn" class="btn btn-outline btn-sm" title="Clears the conversation while keeping your documents">
+                                    <i class="fas fa-eraser"></i> Clear Messages
+                                </button>
+                                <button type="button" id="reset-chat-btn" class="btn btn-danger btn-sm" title="Resets everything and returns to the welcome screen">
+                                    <i class="fas fa-trash"></i> Reset Chat
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -101,7 +101,7 @@ To set up continuous deployment from GitHub:
 Start the Flask application:
 
 ```
-python app.py
+python docaiapp.py
 ```
 
 Then open your browser and navigate to:
