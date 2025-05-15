@@ -4,13 +4,22 @@
 set -e
 echo "Starting deployment script..."
 
-# Install required packages
-echo "Installing Python dependencies..."
-pip install -r /home/site/wwwroot/requirements.txt
-pip install gunicorn
+# Check for a marker file indicating packages have been installed
+if [ ! -f /home/site/.packages_installed ]; then
+    # Install required packages only on first run
+    echo "First run: Installing Python dependencies..."
+    pip install -r /home/site/wwwroot/requirements.txt
+    pip install gunicorn
 
-# Ensure session directory exists
-mkdir -p /home/site/wwwroot/flask_session
+    # Ensure session directory exists
+    mkdir -p /home/site/wwwroot/flask_session
+    
+    # Create marker file to indicate packages have been installed
+    touch /home/site/.packages_installed
+    echo "Python dependencies installed."
+else
+    echo "Python dependencies already installed. Skipping installation."
+fi
 
 # Print debug information
 echo "Workspace structure:"
