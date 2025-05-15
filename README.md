@@ -45,20 +45,24 @@ A Flask-based Retrieval-Augmented Generation (RAG) chatbot that answers question
    ```
 4. Copy the `.env.example` file to `.env` and set your Azure OpenAI credentials:
    ```
+   # Azure OpenAI Settings
    AZURE_OPENAI_ENDPOINT=your_endpoint_here
    AZURE_OPENAI_API_KEY=your_api_key_here  
    AZURE_OPENAI_DEPLOYMENT_NAME=your_deployment_name_here
    AZURE_OPENAI_API_VERSION=2023-05-15
    
-   # Document Intelligence for intelligent document processing
-   AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT=your_doc_intelligence_endpoint_here
-   AZURE_DOCUMENT_INTELLIGENCE_API_KEY=your_doc_intelligence_key_here
+   # App Settings
+   APP_TITLE=Virtual Assistant
+   APP_WELCOME_TITLE=Welcome to the Virtual Assistant
+   APP_WELCOME_MESSAGE=Upload PDFs, CSV files, Word documents, PowerPoint presentations, or provide website URLs to get relevant answers powered by AI.
+   APP_LOGO_PATH=/images/Logo.png
+   APP_PRIMARY_COLOR=#8BACC3
    
-   APP_TITLE=RAG Chatbot
-   APP_WELCOME_MESSAGE=Welcome to the RAG Chatbot. Upload PDFs or provide website URLs to get relevant answers.
-   APP_LOGO_PATH=static/images/logo.svg
-   APP_PRIMARY_COLOR=#007bff
+   # Document Intelligence
+   AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT=your_document_intillegent_endpoint_here
+   AZURE_DOCUMENT_INTELLIGENCE_API_KEY=you_document_intillegent_api_key_here
    
+   # System Prompt
    SYSTEM_PROMPT=You are a helpful assistant answering questions based on the provided documents. If the answer is not in the documents, say so clearly instead of making up information.
    ```
 
@@ -68,7 +72,7 @@ A Flask-based Retrieval-Augmented Generation (RAG) chatbot that answers question
 2. Fill in the required parameters:
    - **Web App Name**: Choose a unique name for your web app
    - **Location**: Select an Azure region
-   - **SKU**: Choose the pricing tier for your app (default: B1)
+   - **SKU**: Choose the pricing tier for your app (default: P2V3)
    - **Azure OpenAI Endpoint**: Your Azure OpenAI service endpoint URL
    - **Azure OpenAI API Key**: Your API key
    - **Azure OpenAI Deployment Name**: Your model deployment name
@@ -101,7 +105,7 @@ To set up continuous deployment from GitHub:
 Start the Flask application:
 
 ```
-python docaiapp.py
+python app.py
 ```
 
 Then open your browser and navigate to:
@@ -123,6 +127,7 @@ http://localhost:5000
 You can customize the following through the `.env` file:
 
 - `APP_TITLE`: The title shown in the browser and header
+- `APP_WELCOME_TITLE`: The welcome title shown on the landing page
 - `APP_WELCOME_MESSAGE`: Welcome message shown to users
 - `APP_LOGO_PATH`: Path to your custom logo (relative to the static folder)
 - `APP_PRIMARY_COLOR`: Primary color for the UI (hex code)
